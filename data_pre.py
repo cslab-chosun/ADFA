@@ -54,242 +54,7 @@ class datagenerator():
         train_len=len(x_train)
         test_len=len(x_test)
         if mode=='len':
-            if mode_num==14:
-                Xp=np.zeros([train_len,14*28])
-                Xt=np.zeros([test_len,14*28])
-                for i in range(train_len):
-                    for k in range(28):
-                        a=0
-                        for h in range(4):
-                            a=a+x_train[i][k][h]
-                        Xp[i][k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(4,8):
-                            a=a+x_train[i][k][h]
-                        Xp[i][28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(8,12):
-                            a=a+x_train[i][k][h]
-                        Xp[i][2*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(12,16):
-                            a=a+x_train[i][k][h]
-                        Xp[i][3*28+k]=a  
-                    for k in range(28):
-                        a=0
-                        for h in range(16,20):
-                            a=a+x_train[i][k][h]
-                        Xp[i][4*28+k]=a    
-                    for k in range(28):
-                        a=0
-                        for h in range(20,24):
-                            a=a+x_train[i][k][h]
-                        Xp[i][5*28+k]=a    
-                    for k in range(28):
-                        a=0
-                        for h in range(24,28):
-                            a=a+x_train[i][k][h]
-                        Xp[i][6*28+k]=a    
-
-                    for k in range(28):
-                        a=0
-                        for h in range(4):
-                            a=a+x_train[i][h][k]
-                        Xp[i][7*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(4,8):
-                            a=a+x_train[i][h][k]
-                        Xp[i][8*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(8,12):
-                            a=a+x_train[i][h][k]
-                        Xp[i][9*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(12,16):
-                            a=a+x_train[i][h][k]
-                        Xp[i][10*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(16,20):
-                            a=a+x_train[i][h][k]
-                        Xp[i][11*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(20,24):
-                            a=a+x_train[i][h][k]
-                        Xp[i][12*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(24,28):
-                            a=a+x_train[i][h][k]
-                        Xp[i][13*28+k]=a
-
-                for i in range(test_len):
-                    for k in range(28):
-                        a=0
-                        for h in range(4):
-                            a=a+x_train[i][k][h]
-                        Xt[i][k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(4,8):
-                            a=a+x_train[i][k][h]
-                        Xt[i][28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(8,12):
-                            a=a+x_train[i][k][h]
-                        Xt[i][2*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(12,16):
-                            a=a+x_train[i][k][h]
-                        Xt[i][3*28+k]=a  
-                    for k in range(28):
-                        a=0
-                        for h in range(16,20):
-                            a=a+x_train[i][k][h]
-                        Xt[i][4*28+k]=a    
-                    for k in range(28):
-                        a=0
-                        for h in range(20,24):
-                            a=a+x_train[i][k][h]
-                        Xt[i][5*28+k]=a    
-                    for k in range(28):
-                        a=0
-                        for h in range(24,28):
-                            a=a+x_train[i][k][h]
-                        Xt[i][6*28+k]=a    
-
-                    for k in range(28):
-                        a=0
-                        for h in range(4):
-                            a=a+x_train[i][h][k]
-                        Xt[i][7*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(4,8):
-                            a=a+x_train[i][h][k]
-                        Xt[i][8*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(8,12):
-                            a=a+x_train[i][h][k]
-                        Xt[i][9*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(12,16):
-                            a=a+x_train[i][h][k]
-                        Xt[i][10*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(16,20):
-                            a=a+x_train[i][h][k]
-                        Xt[i][11*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(20,24):
-                            a=a+x_train[i][h][k]
-                        Xt[i][12*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(24,28):
-                            a=a+x_train[i][h][k]
-                        Xt[i][13*28+k]=a
-            elif mode_num==8:
-                Xp=np.zeros([train_len,8*28])
-                Xt=np.zeros([test_len,8*28])
-                for i in range(train_len):
-                    for k in range(28):
-                        a=0
-                        for h in range(7):
-                            a=a+x_train[i][k][h]
-                        Xp[i][k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(7,14):
-                            a=a+x_train[i][k][h]
-                        Xp[i][28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(14,21):
-                            a=a+x_train[i][k][h]
-                        Xp[i][2*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(21,28):
-                            a=a+x_train[i][k][h]
-                        Xp[i][3*28+k]=a                        
-                    for k in range(28):
-                        a=0
-                        for h in range(7):
-                            a=a+x_train[i][h][k]
-                        Xp[i][4*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(7,14):
-                            a=a+x_train[i][h][k]
-                        Xp[i][5*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(14,21):
-                            a=a+x_train[i][h][k]
-                        Xp[i][6*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(21,28):
-                            a=a+x_train[i][h][k]
-                        Xp[i][7*28+k]=a
-                                            
-                for i in range(test_len):
-                    for k in range(28):
-                        a=0
-                        for h in range(7):
-                            a=a+x_train[i][k][h]
-                        Xt[i][k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(7,14):
-                            a=a+x_train[i][k][h]
-                        Xt[i][28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(14,21):
-                            a=a+x_train[i][k][h]
-                        Xt[i][2*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(21,28):
-                            a=a+x_train[i][k][h]
-                        Xt[i][3*28+k]=a                        
-                    for k in range(28):
-                        a=0
-                        for h in range(7):
-                            a=a+x_train[i][h][k]
-                        Xt[i][4*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(7,14):
-                            a=a+x_train[i][h][k]
-                        Xt[i][5*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(14,21):
-                            a=a+x_train[i][h][k]
-                        Xt[i][6*28+k]=a
-                    for k in range(28):
-                        a=0
-                        for h in range(21,28):
-                            a=a+x_train[i][h][k]
-                        Xt[i][7*28+k]=a
-
-            elif mode_num==4:
+            if mode_num==4:
                 Xp=np.zeros([train_len,4*28])
                 Xt=np.zeros([test_len,4*28])
                 for i in range(train_len):
@@ -335,6 +100,13 @@ class datagenerator():
                         for h in range(14,28):
                             a=a+x_test[i][h][k]
                         Xt[i][3*28+k]=a
+                
+                for i in range(train_len):
+                    for k in range(28*4):
+                        Xp[i][k]=Xp[i][k]/7140
+                for i in range(test_len):
+                    for k in range(28*4):
+                        Xt[i][k]=Xt[i][k]/7140
 
             elif mode_num==2:
                 Xp=np.zeros([6000,2*28])
@@ -450,4 +222,11 @@ class datagenerator():
                         if x_test[c][j][i] != 0:
                             Xt[c][3*28+j]=i
                             break
+        
+            for i in range(train_len):
+                for k in range(28*4):
+                    Xp[i][k]=Xp[i][k]/28
+            for i in range(test_len):
+                for k in range(28*4):
+                    Xt[i][k]=Xt[i][k]/28
             return Xp , Xt

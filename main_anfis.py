@@ -50,10 +50,10 @@ from train_SVM import SVM_chart
 
 (x_train1, y_train1), (x_test, y_test) = mnist.load_data()
 
-x_test = x_train1[10000:13000]
-y_test = y_train1[10000:13000]
-x_train = x_train1[0:10000]
-y_train = y_train1[0:10000]
+x_test = x_train1[0:50000]
+y_test = y_train1[0:50000]
+x_train = x_train1[50000:60000]
+y_train = y_train1[50000:60000]
 
 mode_chart='chart'
 mode_num=4
@@ -98,11 +98,10 @@ for i in range(len(column)):
                     df_total.loc[j,column[i+k]]=re_list_SVM_len[j][k]
 df_total.to_csv("total.csv")
 
-column_2=["PR_ANN_chart_1","LA_ANN_chart_1","PR_ANN_chart_2","LA_ANN_chart_2",
+column_2 = ["PR_ANN_chart_1","LA_ANN_chart_1","PR_ANN_chart_2","LA_ANN_chart_2",
         "PR_ANN_len_1","LA_ANN_len_1","PR_ANN_len_2","LA_ANN_len_2",
-        "PR_SVM_chart_1","LA_SVM_chart_1",
-        "PR_SVM_len_1","LA_SVM_len_1",
-        "LA_Ture"]
+        "PR_SVM_chart_1","LA_SVM_chart_1","PR_SVM_len_1","LA_SVM_len_1","LA_Ture"]
+        
 df_sub = pd.DataFrame(index=range(len(y_test)),columns=column_2)
 for i in range(len(y_test)):
     df_sub.loc[i,"PR_ANN_chart_1"]=df_total.loc[i,"PR_ANN_chart_1"]
