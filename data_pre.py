@@ -48,6 +48,14 @@ from train_SVM import SVM_len
 from train_SVM import SVM_chart
 
 class datagenerator():
+    
+    def numbers_localmax(X):
+        c=0
+        for i in range(1,len(X)-1):
+            if X[i]>X[i-1] and X[i]>=X[i+1]:
+                c+=1
+        return c
+
     def detamake(x_train,x_test,mode,mode_num):
         
         import numpy as np
@@ -229,4 +237,20 @@ class datagenerator():
             for i in range(test_len):
                 for k in range(28*4):
                     Xt[i][k]=Xt[i][k]/28
+            return Xp , Xt
+        
+
+        elif mode=="p":
+            Xp=np.zeros([train_len,2*28])*28
+            Xt=np.zeros([test_len,2*28])*28
+            for i in range(train_len):
+                for k in range(28):
+                    Xp[i][k]=datagenerator.numbers_localmax(x_train[i][k])
+                for k in range(28):
+                    Xp[i][28+k]=datagenerator.numbers_localmax([o[k] for o in x_train[i]])
+            for i in range(test_len):
+                for k in range(28):
+                    Xt[i][k]=datagenerator.numbers_localmax(x_test[i][k])
+                for k in range(28):
+                    Xt[i][28+k]=datagenerator.numbers_localmax([o[k] for o in x_test[i]])
             return Xp , Xt

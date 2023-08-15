@@ -34,6 +34,12 @@ if (example == 'mnist'):
     nPop = 40
     epochs = 500
 
+elif (example == 'emnist'):
+    data_file = '_cnn_cnn_.csv'
+    problem = 'C'
+    n_mf =[3,1,3,1,3,1,3,1,3,1,3,1]
+    nPop = 40
+    epochs = 500
 
 else:
     print("Example not found")

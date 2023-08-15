@@ -38,7 +38,7 @@ from skimage.io import imread
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report,accuracy_score,confusion_matrix
-import pickle
+import picklez
 from data_pre import datagenerator
 from keras.datasets import mnist
 from keras.utils import np_utils
@@ -46,14 +46,33 @@ from train_ANN import ANN_chart
 from train_ANN import ANN_len
 from train_SVM import SVM_len
 from train_SVM import SVM_chart
+from extra_keras_datasets import emnist
 
 
-(x_train1, y_train1), (x_test, y_test) = mnist.load_data()
+mod_problem = "mnist"
+mode_type="letter"
 
-x_test = x_train1[0:50000]
-y_test = y_train1[0:50000]
-x_train = x_train1[50000:60000]
-y_train = y_train1[50000:60000]
+
+if mod_problem == "emnist":
+
+    if mode_type=="letter":
+        (x_train1, y_train1), (x_test, x_test) = emnist.load_data(type='letter')
+    else :
+        (x_train1, y_train1), (x_test, x_test) = emnist.load_data(type='balanced')
+
+    x_test = x_train1[57000:60000]
+    y_test = y_train1[57000:60000]
+
+    x_train = x_train1[0:57000]
+    y_train = y_train1[0:57000]
+
+elif mod_problem == "mnist":
+
+    (x_train1, y_train1), (x_test, y_test) = mnist.load_data()
+    x_test = x_train1[0:50000]
+    y_test = y_train1[0:50000]
+    x_train = x_train1[50000:60000]
+    y_train = y_train1[50000:60000]
 
 mode_chart='chart'
 mode_num=4
@@ -61,7 +80,9 @@ Xp_chart , Xt_chart = datagenerator.detamake(x_train,x_test,mode_chart,mode_num)
 mode_len='len'
 mode_num=4
 Xp_len , Xt_len = datagenerator.detamake(x_train,x_test,mode_len,mode_num)
-
+mode_p='p'
+mode_num=2
+Xp_p , Xt_p = datagenerator.detamake(x_train,x_test,mode_p,mode_num)
 
 column=["PR_ANN_chart_1","LA_ANN_chart_1","PR_ANN_chart_2","LA_ANN_chart_2","ACC_ANN_chart",
         "PR_ANN_len_1","LA_ANN_len_1","PR_ANN_len_2","LA_ANN_len_2","ACC_ANN_len",
