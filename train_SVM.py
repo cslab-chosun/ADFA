@@ -2,26 +2,15 @@
 # import required libraries
 
 import pandas as pd
-from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
-from sklearn.metrics import confusion_matrix
-from sklearn.preprocessing import LabelEncoder
-import pandas as pd
 from sklearn import svm
 from sklearn.model_selection import GridSearchCV
 import os
 import matplotlib.pyplot as plt
-from skimage.transform import resize
-from skimage.io import imread
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report,accuracy_score,confusion_matrix
+from sklearn.metrics import accuracy_score
 import pickle
-from skimage import color
-from data_pre import datagenerator
-from keras.datasets import mnist
-from keras.utils import np_utils
-import numpy as np
+
 
 def SVM_len(y_train,Xp_len,y_test,Xt_len):
     param_grid={'C':[0.1,1,10,100],'gamma':[0.0001,0.001,0.1,1],'kernel':['rbf']}#,'poly'

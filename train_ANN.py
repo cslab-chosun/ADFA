@@ -1,28 +1,13 @@
+# import required libraries
+
 from tensorflow import keras
 import seaborn as sns
-
-from numpy.random import seed
 from tensorflow.random import set_seed
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
-from sklearn.metrics import confusion_matrix
-from sklearn.preprocessing import LabelEncoder
-from keras.datasets import mnist
 from keras.utils import np_utils
 import numpy as np
 import pandas as pd
-from sklearn import svm
-from sklearn.model_selection import GridSearchCV
 import os
 import matplotlib.pyplot as plt
-from skimage.transform import resize
-from skimage.io import imread
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report,accuracy_score,confusion_matrix
-import pickle
-from data_pre import datagenerator
 from find_next import findesec
 
 
