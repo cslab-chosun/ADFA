@@ -49,8 +49,8 @@ from train_SVM import SVM_chart
 from extra_keras_datasets import emnist
 
 
-mod_problem = "mnist"
-mode_type="letter"
+mod_problem = "mnist" # if you want to train on the mnist application set this parameter to the "mnist" else set it to the "emnist"
+mode_type="letter" # if you select "emnist" application you should set this parameter not null, for emist letter set it to the  "letter" else set it to 'balanced'
 
 
 if mod_problem == "emnist":
@@ -74,13 +74,13 @@ elif mod_problem == "mnist":
     x_train = x_train1[50000:60000]
     y_train = y_train1[50000:60000]
 
-mode_chart='chart'
+mode_chart='chart' # this is a mode for glass abstraction
 mode_num=4
 Xp_chart , Xt_chart = datagenerator.detamake(x_train,x_test,mode_chart,mode_num)
-mode_len='len'
+mode_len='len' # this is a mode for opeauqe abstraction
 mode_num=4
 Xp_len , Xt_len = datagenerator.detamake(x_train,x_test,mode_len,mode_num)
-mode_p='p'
+mode_p='p' # this is a mode for pick abstraction
 mode_num=2
 Xp_p , Xt_p = datagenerator.detamake(x_train,x_test,mode_p,mode_num)
 
@@ -120,8 +120,8 @@ for i in range(len(column)):
 df_total.to_csv("total.csv")
 
 column_2 = ["PR_ANN_chart_1","LA_ANN_chart_1","PR_ANN_chart_2","LA_ANN_chart_2",
-        "PR_ANN_len_1","LA_ANN_len_1","PR_ANN_len_2","LA_ANN_len_2",
-        "PR_SVM_chart_1","LA_SVM_chart_1","PR_SVM_len_1","LA_SVM_len_1","LA_Ture"]
+            "PR_ANN_len_1","LA_ANN_len_1","PR_ANN_len_2","LA_ANN_len_2",
+            "PR_SVM_chart_1","LA_SVM_chart_1","PR_SVM_len_1","LA_SVM_len_1","LA_Ture"]
         
 df_sub = pd.DataFrame(index=range(len(y_test)),columns=column_2)
 for i in range(len(y_test)):
